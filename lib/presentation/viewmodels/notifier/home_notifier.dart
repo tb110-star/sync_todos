@@ -8,10 +8,11 @@ class HomeNotifier extends Notifier<HomeState> {
     return const HomeState();
   }
 
-  void addTodo(String title) {
+  void addTodo(String title, {String description = ''}) {
     final newTodo = TodoItem(
       id: DateTime.now().millisecondsSinceEpoch,
       title: title,
+      description: description,
     );
     state = state.copyWith(
       todos: [...state.todos, newTodo],
@@ -28,6 +29,7 @@ class HomeNotifier extends Notifier<HomeState> {
 
     state = state.copyWith(todos: updatedList);
   }
+
 }
 
 final homeNotifierProvider =

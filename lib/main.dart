@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'presentation/screens/home_screen.dart';
-
+import 'presentation/routes/app_router.dart';
 void main() {
   runApp(
     const ProviderScope(
@@ -14,14 +14,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
-      title: 'Clean UI Demo',
+      title: 'Todo App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.transparent),
         useMaterial3: true,
+        colorSchemeSeed: Colors.blueAccent,
       ),
-      home: const HomeScreen(),
     );
   }
 }
